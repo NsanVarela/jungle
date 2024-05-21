@@ -1,5 +1,6 @@
 import '../styles/ShoppingList.css'
 import { plantList } from '../datas/plantList'
+import CareScale from './CareScale'
 
 function ShoppingList() {
 	const categories = plantList.reduce(
@@ -23,6 +24,8 @@ function ShoppingList() {
                         ? <span>🔥</span> 
                         : null }
                         {plant.isSpecialOffer && <div className='lmj-sales'>Soldes</div>}
+                        <CareScale careType='water' scaleValue={plant.water} />
+                        <CareScale careType='light' scaleValue={plant.light} />
                     </li>
 				))}
 			</ul>
