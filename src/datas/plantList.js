@@ -1,4 +1,12 @@
 import monstera from '../assets/monstera.jpg'
+import ficus from '../assets/ficus.jpg'
+import pothos from '../assets/pothos.jpg'
+import yucca from '../assets/yucca.jpg'
+import olivier from '../assets/olivier.jpg'
+import geranium from '../assets/geranium.jpg'
+import basilique from '../assets/basilique.jpg'
+import aloe from '../assets/aloe.jpg'
+import succulente from '../assets/succulente.jpg'
 
 export const plantList = [
 	{
@@ -19,7 +27,7 @@ export const plantList = [
         isSpecialOffer: true,
 		light: 3,
 		water: 1,
-		cover: monstera
+		cover: ficus
 	},
 	{
 		name: 'pothos argenté',
@@ -29,7 +37,7 @@ export const plantList = [
         isSpecialOffer: true,
 		light: 1,
 		water: 2,
-		cover: monstera
+		cover: pothos
 	},
 	{
 		name: 'yucca',
@@ -39,7 +47,7 @@ export const plantList = [
         isSpecialOffer: false,
 		light: 3,
 		water: 1,
-		cover: monstera
+		cover: yucca
 	},
 	{
 		name: 'olivier',
@@ -49,7 +57,7 @@ export const plantList = [
         isSpecialOffer: false,
 		light: 3,
 		water: 1,
-		cover: monstera
+		cover: olivier
 	},
 	{
 		name: 'géranium',
@@ -59,7 +67,7 @@ export const plantList = [
         isSpecialOffer: false,
 		light: 2,
 		water: 2,
-		cover: monstera
+		cover: geranium
 	},
 	{
 		name: 'basilique',
@@ -69,7 +77,7 @@ export const plantList = [
         isSpecialOffer: false,
 		light: 2,
 		water: 3,
-		cover: monstera
+		cover: basilique
 	},
 	{
 		name: 'aloe',
@@ -79,7 +87,7 @@ export const plantList = [
         isSpecialOffer: false,
 		light: 2,
 		water: 1,
-		cover: monstera
+		cover: aloe
 	},
 	{
 		name: 'succulente',
@@ -89,6 +97,6 @@ export const plantList = [
         isSpecialOffer: true,
 		light: 2,
 		water: 1,
-		cover: monstera
+		cover: succulente
 	}
 ]
