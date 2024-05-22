@@ -1,6 +1,12 @@
 import Sun from '../assets/sun.svg'
 import Water from '../assets/water.svg'
 
+const quantityLabel = {
+    1: 'peu',
+    2: 'modérément',
+    3: 'beaucoup'
+}
+
 function CareScale({ scaleValue, careType }) {
     /* Props injectées par déstructuration. 
     Cela permet directement de déclarer une variable et de lui assigner la valeur d'une propriété d'un objet. 
@@ -22,7 +28,8 @@ function CareScale({ scaleValue, careType }) {
         Chaque <span> a une key unique basée sur rangeElem.toString(), ce qui est nécessaire pour que React 
         suive efficacement les éléments dans une liste.
         */
-        <div>
+        <div onClick={() => alert( `Cette plante requiert ${quantityLabel[scaleValue]} ${
+            careType === 'light' ? 'de lumière' : "d'arrosage"}` )} >
             { range.map((rangeElem) => 
                 scaleValue >= rangeElem 
                     ? <span key={rangeElem.toString()}>{scaleType}</span> 
