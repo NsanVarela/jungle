@@ -1,8 +1,10 @@
 import '../styles/Cart.css'
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeFromCart, emptyCart } from '../redux/actions'
 
 
-function Cart({ cart, updateCart, activeCategory, setActiveCategory }) {
+function Cart() {
 	/*
 	const [cart, updateCart] = useState(0)
 	Décomposition, parce qu'il s'agit d'un tableau et non d'un objet.
@@ -13,13 +15,21 @@ function Cart({ cart, updateCart, activeCategory, setActiveCategory }) {
 	- le deuxième est une fonction qui permet de la modifier
 	- paramètre passé entre parenthèses à useState (0) est l'état initial de notre state
 	*/
-
+	const dispatch = useDispatch()
+	const cart = useSelector(state => state.cart)
 	const [isOpen, setIsOpen] = useState(true)
-	const items = Object.keys(cart)
-	const total = items.reduce(
-		(acc, item) => acc + cart[item].amount * cart[item].price,
-		0
+
+	const total = cart.reduce(
+		(acc, plant) => acc + plant.amount * plant.price, 0
 	)
+
+	function handleRemoveFromCart(name) {
+		dispatch(removeFromCart(name))
+	}
+
+	function handleEmptyCart() {
+		dispatch(emptyCart())
+	}
 
 	useEffect(() => {
 		document.title = `LMJ: ${total}€ d'achats`
@@ -40,11 +50,12 @@ function Cart({ cart, updateCart, activeCategory, setActiveCategory }) {
 						{cart.map(({ name, price, amount }, index) => (
 							<div key={`${name}-${index}`}>
 								{name} {price}€ x {amount}
+								<button onClick={() => handleRemoveFromCart(name)}>Retirer</button>
 							</div>
 						))}
 					</ul>
 					<h3>Total :{total}€</h3>
-					<button onClick={() => updateCart([])}>Vider le panier</button>
+					<button onClick={() => handleEmptyCart}>Vider le panier</button>
 				</div>
 			) : (
 				<div>Votre panier est vide</div>
