@@ -1,8 +1,8 @@
 import '../styles/Cart.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-function Cart({ cart, updateCart }) {
-	
+
+function Cart({ cart, updateCart, activeCategory, setActiveCategory }) {
 	/*
 	const [cart, updateCart] = useState(0)
 	Décomposition, parce qu'il s'agit d'un tableau et non d'un objet.
@@ -15,10 +15,15 @@ function Cart({ cart, updateCart }) {
 	*/
 
 	const [isOpen, setIsOpen] = useState(true)
-	const total = cart.reduce(
-		(acc, plantType) => acc + plantType.amount * plantType.price,
+	const items = Object.keys(cart)
+	const total = items.reduce(
+		(acc, item) => acc + cart[item].amount * cart[item].price,
 		0
 	)
+
+	useEffect(() => {
+		document.title = `LMJ: ${total}€ d'achats`
+	}, [total])
 
 	return isOpen ? (
 		<div className='lmj-cart'>
