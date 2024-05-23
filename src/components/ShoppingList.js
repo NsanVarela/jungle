@@ -1,10 +1,13 @@
+import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { plantList } from '../datas/plantList'
+import '../styles/ShoppingList.css'
 import PlantItem from './PlantItem'
 import Categories from './Categories'
-import '../styles/ShoppingList.css'
+import { plantList } from '../datas/plantList'
+import { addToCart } from '../redux/actions'
 
-function ShoppingList({ cart, updateCart }) {
+function ShoppingList() {
+	const dispatch = useDispatch()
 	const [activeCategory, setActiveCategory] = useState('')
 	const categories = plantList.reduce(
 		(acc, plant) =>
@@ -12,19 +15,8 @@ function ShoppingList({ cart, updateCart }) {
 		[]
 	)
 
-	function addToCart(name, price) {
-		const currentPlantSaved = cart.find((plant) => plant.name === name)
-		if (currentPlantSaved) {
-			const cartFilteredCurrentPlant = cart.filter(
-				(plant) => plant.name !== name
-			)
-			updateCart([
-				...cartFilteredCurrentPlant,
-				{ name, price, amount: currentPlantSaved.amount + 1 }
-			])
-		} else {
-			updateCart([...cart, { name, price, amount: 1 }])
-		}
+	function handleAddToCart(name, price) {
+		dispatch(addToCart(name, price))
 	}
 
 	return (
@@ -46,7 +38,7 @@ function ShoppingList({ cart, updateCart }) {
 								light={light}
 								price={price}
 							/>
-							<button onClick={() => addToCart(name, price)}>Ajouter</button>
+							<button onClick={() => handleAddToCart(name, price)}>Ajouter</button>
 						</div>
 					) : null
 				)}

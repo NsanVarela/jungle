@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
-import Banner from './Banner'
+import '../styles/Layout.css'
 import logo from '../assets/logo.png'
+import Banner from './Banner'
 import Cart from './Cart'
 import ShoppingList from './ShoppingList'
-// import QuestionFormNonControle from './QuestionFormNonControle'
-// import QuestionFormControle from './QuestionFormControle'
 import Footer from './Footer'
-import '../styles/Layout.css'
 
 function App() {
 	const savedCart = localStorage.getItem('cart')
@@ -14,7 +12,6 @@ function App() {
 	useEffect(() => {
 		localStorage.setItem('cart', JSON.stringify(cart))
 	}, [cart])
-	// const [isFooterShow, updateIsFooterShown] = useState(true)
 
 	return (
 		<div>
@@ -25,11 +22,7 @@ function App() {
 			<div className='lmj-layout-inner'>
       			<Cart cart={cart} updateCart={updateCart} />
 				<ShoppingList cart={cart} updateCart={updateCart} />
-				{/* <QuestionFormNonControle /> */}
-				{/* <QuestionFormControle /> */}
 			</div>
-			{/* <button onClick={() => updateIsFooterShown(!isFooterShow)} >Cacher !</button> */}
-			{/* {isFooterShow && <Footer cart={cart} />} */}
 			<Footer cart={cart} />
 		</div>
 	)
