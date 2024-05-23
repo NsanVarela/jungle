@@ -2,6 +2,8 @@ import '../styles/Cart.css'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromCart, emptyCart } from '../redux/actions'
+import { NUMBER } from '../constants/number'
+import { TEXT } from '../constants/text'
 
 
 function Cart() {
@@ -20,7 +22,7 @@ function Cart() {
 	const [isOpen, setIsOpen] = useState(true)
 
 	const total = cart.reduce(
-		(acc, plant) => acc + plant.amount * plant.price, 0
+		(acc, plant) => acc + plant.amount * plant.price, NUMBER.ZERO
 	)
 
 	function handleRemoveFromCart(name) {
@@ -32,7 +34,7 @@ function Cart() {
 	}
 
 	useEffect(() => {
-		document.title = `LMJ: ${total}€ d'achats`
+		document.title = `LMJ: ${total}${TEXT.EURO} d'achats`
 	}, [total])
 
 	return isOpen ? (
@@ -41,24 +43,24 @@ function Cart() {
 				className='lmj-cart-toggle-button'
 				onClick={() => setIsOpen(false)}
 			>
-				Fermer
+				{TEXT.FERMER}
 			</button>
-			{cart.length > 0 ? (
+			{cart.length > NUMBER.ZERO ? (
 				<div>
-					<h2>Panier</h2>
+					<h2>{TEXT.PANIER}</h2>
 					<ul>
 						{cart.map(({ name, price, amount }, index) => (
 							<div key={`${name}-${index}`}>
-								{name} {price}€ x {amount}
-								<button onClick={() => handleRemoveFromCart(name)}>Retirer</button>
+								{name} {price}{TEXT.EURO} x {amount}
+								<button onClick={() => handleRemoveFromCart(name)}>{TEXT.RETIRER}</button>
 							</div>
 						))}
 					</ul>
-					<h3>Total :{total}€</h3>
-					<button onClick={() => handleEmptyCart}>Vider le panier</button>
+					<h3>{TEXT.TOTAL} :{total}{TEXT.EURO}</h3>
+						<button onClick={() => handleEmptyCart}>{TEXT.VIDER}</button>
 				</div>
 			) : (
-				<div>Votre panier est vide</div>
+				<div>{TEXT.PANIER_VIDE}</div>
 			)}
 		</div>
 	) : (
@@ -66,7 +68,7 @@ function Cart() {
 			<button
 				className='lmj-cart-toggle-button'
 				onClick={() => setIsOpen(true)}>
-					Ouvrir le panier
+					{TEXT.OUVRIR}
 			</button>
 		</div>
 		

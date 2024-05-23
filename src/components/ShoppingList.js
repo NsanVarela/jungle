@@ -5,6 +5,7 @@ import PlantItem from './PlantItem'
 import Categories from './Categories'
 import { plantList } from '../datas/plantList'
 import { addToCart } from '../redux/actions'
+import { TEXT } from '../constants/text'
 
 function ShoppingList() {
 	const dispatch = useDispatch()
@@ -38,7 +39,7 @@ function ShoppingList() {
 								light={light}
 								price={price}
 							/>
-							<button onClick={() => handleAddToCart(name, price)}>Ajouter</button>
+							<button onClick={() => handleAddToCart(name, price)}>{TEXT.AJOUTER}</button>
 						</div>
 					) : null
 				)}

@@ -1,5 +1,7 @@
 import Sun from '../assets/sun.svg'
 import Water from '../assets/water.svg'
+import { NUMBER } from '../constants/number'
+import { TEXT } from '../constants/text'
 
 const quantityLabel = {
     1: 'peu',
@@ -13,9 +15,9 @@ function CareScale({ scaleValue, careType }) {
     Cela nous permet de déclarer directement nos deux variables  scaleValue   et  careType, 
     et de les assigner aux valeurs passées en props.
     */
-    const range = [1, 2, 3]
+    const range = [NUMBER.ONE, NUMBER.TWO, NUMBER.THREE]
     
-    const scaleType = careType === 'light' 
+    const scaleType = careType === TEXT.plant.care.LIGHT 
         ? ( <img src={Sun} alt='sun-icon' /> ) 
         : ( <img src={Water} alt='water-icon' /> )
 
@@ -29,7 +31,7 @@ function CareScale({ scaleValue, careType }) {
         suive efficacement les éléments dans une liste.
         */
         <div onClick={() => alert( `Cette plante requiert ${quantityLabel[scaleValue]} ${
-            careType === 'light' ? 'de lumière' : "d'arrosage"}` )} >
+            careType === TEXT.plant.care.LIGHT ? 'de lumière' : "d'arrosage"}` )} >
             { range.map((rangeElem) => 
                 scaleValue >= rangeElem 
                     ? <span key={rangeElem.toString()}>{scaleType}</span> 

@@ -1,5 +1,6 @@
 import '../styles/PlantItem.css'
 import CareScale from './CareScale'
+import { TEXT } from '../constants/text'
 
 function PlantItem({ id, cover, name, water, light }) {
 	
@@ -9,11 +10,11 @@ function PlantItem({ id, cover, name, water, light }) {
 			{name}
 			<div>
 				<CareScale 
-					careType='water' 
+					careType={TEXT.plant.care.WATER}
 					scaleValue={water} 
 				/>
 				<CareScale 
-					careType='light' 
+					careType={TEXT.plant.care.LIGHT} 
 					scaleValue={light} 
 				/>
 			</div>
