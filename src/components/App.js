@@ -5,6 +5,7 @@ import Banner from './Banner'
 import Cart from './Cart'
 import ShoppingList from './ShoppingList'
 import Footer from './Footer'
+import { TEXT } from '../constants/text'
 
 function App() {
 	const savedCart = localStorage.getItem('cart')
@@ -17,7 +18,7 @@ function App() {
 		<div>
 			<Banner>
 				<img src={logo} alt='La maison jungle' className='lmj-logo' />
-				<h1 className='lmj-title'>La maison jungle</h1>
+				<h1 className='lmj-title'>{TEXT.TITLE}</h1>
 			</Banner>
 			<div className='lmj-layout-inner'>
       			<Cart cart={cart} updateCart={updateCart} />

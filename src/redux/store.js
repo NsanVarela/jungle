@@ -1,36 +1,38 @@
 import { createStore } from 'redux'
+import { CART_ACTIONS } from '../constants/cart'
+import { NUMBER } from '../constants/number'
 
 const initialState = {
     cart: []
 }
 
-function cartReducer(action, state = initialState) {
+function cartReducer(state = initialState, action) {
     switch (action.type) {
-        case 'ADD_TO_CART':
+        case CART_ACTIONS.ADD_TO_CART:
             const existingPlant = state.cart.find(plant => plant.name === action.payload.name)
             if (existingPlant) {
                 return {
                     ...state,
                     cart: state.cart.map(plant =>
                         plant.name === action.payload.name
-                        ? { ...plant, amount: plant.amount + 1 }
+                        ? { ...plant, amount: plant.amount + NUMBER.ONE }
                         : plant
                     )
                 }
             } else {
                 return {
                     ...state,
-                    cart: [...state.cart, { ...action.payload, amount: 1 }]
+                    cart: [...state.cart, { ...action.payload, amount: NUMBER.ONE }]
                 }
             }
-        case 'REMOVE_FROM_CART':
+        case CART_ACTIONS.REMOVE_FROM_CART:
             const plantToRemove = state.cart.find(plant => plant.name === action.payload.name)
-            if (plantToRemove.amount > 1) {
+            if (plantToRemove.amount > NUMBER.ONE) {
                 return {
                     ...state,
                     cart: state.cart.map(plant =>
                         plant.name === action.payload.name
-                        ? { ...plant, amount: plant.amount - 1 }
+                        ? { ...plant, amount: plant.amount - NUMBER.ONE }
                         : plant
                     )
                 }
@@ -40,7 +42,7 @@ function cartReducer(action, state = initialState) {
                     cart: state.cart.filter(plant => plant.name !== action.payload.name)
                 }
             }
-        case 'EMPTY_CART':
+        case CART_ACTIONS.EMPTY_CART:
             return {
                 ...state,
                 cart: []

@@ -7,105 +7,107 @@ import geranium from '../assets/geranium.jpg'
 import basilique from '../assets/basilique.jpg'
 import aloe from '../assets/aloe.jpg'
 import succulente from '../assets/succulente.jpg'
+import { TEXT } from '../constants/text'
+import { NUMBER } from '../constants/number'
 
 export const plantList = [
 	{
-		name: 'Monstera',
-		category: 'classique',
+		name: TEXT.PLANT.NAME.MONSTERA,
+		category: TEXT.PLANT.CATEGORY.CLASSIC,
         id: '1ed',
         isBestSale: false,
         isSpecialOffer: true,
-		light: 2,
-		water: 3,
+		light: NUMBER.TWO,
+		water: NUMBER.THREE,
 		cover: monstera,
-		price: 15
+		price: NUMBER.FIFTEEN
 	},
 	{
-		name: 'Ficus lyrata',
-		category: 'classique',
+		name: TEXT.PLANT.NAME.FICUS_LYRATA,
+		category: TEXT.PLANT.CATEGORY.CLASSIC,
 		id: '2ab',
         isBestSale: false,
         isSpecialOffer: true,
-		light: 3,
-		water: 1,
+		light: NUMBER.THREE,
+		water: NUMBER.ONE,
 		cover: ficus,
-		price: 16
+		price: NUMBER.SIXTEEN
 	},
 	{
-		name: 'Pothos argenté',
-		category: 'classique',
+		name: TEXT.PLANT.NAME.POTHOS_ARGENTE,
+		category: TEXT.PLANT.CATEGORY.CLASSIC,
 		id: '3sd',
         isBestSale: false,
         isSpecialOffer: true,
-		light: 1,
-		water: 2,
+		light: NUMBER.ONE,
+		water: NUMBER.TWO,
 		cover: pothos,
-		price: 16
+		price: NUMBER.SIXTEEN
 	},
 	{
-		name: 'Yucca',
-		category: 'classique',
+		name: TEXT.PLANT.NAME.YUCCA,
+		category: TEXT.PLANT.CATEGORY.CLASSIC,
 		id: '4kk',
         isBestSale: true,
         isSpecialOffer: false,
-		light: 3,
-		water: 1,
+		light: NUMBER.THREE,
+		water: NUMBER.ONE,
 		cover: yucca,
-		price: 15
+		price: NUMBER.FIFTEEN
 	},
 	{
-		name: 'Olivier',
-		category: 'extérieur',
+		name: TEXT.PLANT.NAME.OLIVIER,
+		category: TEXT.PLANT.CATEGORY.OUTSIDE,
 		id: '5pl',
         isBestSale: false,
         isSpecialOffer: false,
-		light: 3,
-		water: 1,
+		light: NUMBER.THREE,
+		water: NUMBER.ONE,
 		cover: olivier,
-		price: 15
+		price: NUMBER.FIFTEEN
 	},
 	{
-		name: 'Géranium',
-		category: 'extérieur',
+		name: TEXT.PLANT.NAME.GERANIUM,
+		category: TEXT.PLANT.CATEGORY.OUTSIDE,
 		id: '6uo',
         isBestSale: false,
         isSpecialOffer: false,
-		light: 2,
-		water: 2,
+		light: NUMBER.TWO,
+		water: NUMBER.TWO,
 		cover: geranium,
-		price: 15
+		price: NUMBER.FIFTEEN
 	},
 	{
-		name: 'Basilique',
-		category: 'extérieur',
+		name: TEXT.PLANT.NAME.BASILIQUE,
+		category: TEXT.PLANT.CATEGORY.OUTSIDE,
 		id: '7ie',
         isBestSale: true,
         isSpecialOffer: false,
-		light: 2,
-		water: 3,
+		light: NUMBER.TWO,
+		water: NUMBER.THREE,
 		cover: basilique,
-		price: 15
+		price: NUMBER.FIFTEEN
 	},
 	{
-		name: 'Aloe',
-		category: 'plante grasse',
+		name: TEXT.PLANT.NAME.ALOE,
+		category: TEXT.PLANT.CATEGORY.FAT,
 		id: '8fp',
         isBestSale: false,
         isSpecialOffer: false,
-		light: 2,
-		water: 1,
+		light: NUMBER.TWO,
+		water: NUMBER.ONE,
 		cover: aloe,
-		price: 15
+		price: NUMBER.FIFTEEN
 	},
 	{
-		name: 'Succulente',
-		category: 'plante grasse',
+		name: TEXT.PLANT.NAME.SUCCULENTE,
+		category: TEXT.PLANT.CATEGORY.FAT,
 		id: '9vn',
         isBestSale: true,
         isSpecialOffer: true,
-		light: 2,
-		water: 1,
+		light: NUMBER.TWO,
+		water: NUMBER.ONE,
 		cover: succulente,
-		price: 15
+		price: NUMBER.FIFTEEN
 	}
 ]
