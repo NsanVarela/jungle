@@ -17,7 +17,7 @@ function CareScale({ scaleValue, careType }) {
     */
     const range = [NUMBER.ONE, NUMBER.TWO, NUMBER.THREE]
     
-    const scaleType = careType === TEXT.plant.care.LIGHT 
+    const scaleType = careType === TEXT.PLANT.CARE.LIGHT 
         ? ( <img src={Sun} alt='sun-icon' /> ) 
         : ( <img src={Water} alt='water-icon' /> )
 
@@ -30,8 +30,8 @@ function CareScale({ scaleValue, careType }) {
         Chaque <span> a une key unique basée sur rangeElem.toString(), ce qui est nécessaire pour que React 
         suive efficacement les éléments dans une liste.
         */
-        <div onClick={() => alert( `Cette plante requiert ${quantityLabel[scaleValue]} ${
-            careType === TEXT.plant.care.LIGHT ? 'de lumière' : "d'arrosage"}` )} >
+        <div onClick={() => alert( `${TEXT.PLANT.CARE.REQUIREMENT} ${quantityLabel[scaleValue]} ${
+            careType === TEXT.PLANT.CARE.LIGHT ? TEXT.PLANT.CARE.OF_LIGHT : TEXT.PLANT.CARE.OF_WATERING}` )} >
             { range.map((rangeElem) => 
                 scaleValue >= rangeElem 
                     ? <span key={rangeElem.toString()}>{scaleType}</span> 

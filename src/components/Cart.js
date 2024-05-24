@@ -34,7 +34,7 @@ function Cart() {
 	}
 
 	useEffect(() => {
-		document.title = `LMJ: ${total}${TEXT.EURO} d'achats`
+		document.title = `LMJ: ${total}${TEXT.CART.EURO} d'achats`
 	}, [total])
 
 	return isOpen ? (
@@ -43,24 +43,24 @@ function Cart() {
 				className='lmj-cart-toggle-button'
 				onClick={() => setIsOpen(false)}
 			>
-				{TEXT.FERMER}
+				{TEXT.CART.CLOSE}
 			</button>
 			{cart.length > NUMBER.ZERO ? (
 				<div>
-					<h2>{TEXT.PANIER}</h2>
+					<h2>{TEXT.CART.CART}</h2>
 					<ul>
 						{cart.map(({ name, price, amount }, index) => (
 							<div key={`${name}-${index}`}>
-								{name} {price}{TEXT.EURO} x {amount}
-								<button onClick={() => handleRemoveFromCart(name)}>{TEXT.RETIRER}</button>
+								{name} {price}{TEXT.CART.EURO} x {amount}
+								<button onClick={() => handleRemoveFromCart(name)}>{TEXT.CART.REMOVE}</button>
 							</div>
 						))}
 					</ul>
-					<h3>{TEXT.TOTAL} :{total}{TEXT.EURO}</h3>
-						<button onClick={() => handleEmptyCart}>{TEXT.VIDER}</button>
+					<h3>{TEXT.CART.TOTAL} :{total}{TEXT.CART.EURO}</h3>
+						<button onClick={() => handleEmptyCart()}>{TEXT.CART.EMPTY}</button>
 				</div>
 			) : (
-				<div>{TEXT.PANIER_VIDE}</div>
+				<div>{TEXT.CART.EMPTY_CART}</div>
 			)}
 		</div>
 	) : (
@@ -68,7 +68,7 @@ function Cart() {
 			<button
 				className='lmj-cart-toggle-button'
 				onClick={() => setIsOpen(true)}>
-					{TEXT.OUVRIR}
+					{TEXT.CART.OPEN}
 			</button>
 		</div>
 		

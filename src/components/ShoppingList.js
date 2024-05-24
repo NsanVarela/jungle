@@ -39,7 +39,7 @@ function ShoppingList() {
 								light={light}
 								price={price}
 							/>
-							<button onClick={() => handleAddToCart(name, price)}>{TEXT.AJOUTER}</button>
+							<button onClick={() => handleAddToCart(name, price)}>{TEXT.CART.ADD}</button>
 						</div>
 					) : null
 				)}

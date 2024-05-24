@@ -10,11 +10,11 @@ function PlantItem({ id, cover, name, water, light }) {
 			{name}
 			<div>
 				<CareScale 
-					careType={TEXT.plant.care.WATER}
+					careType={TEXT.PLANT.CARE.WATER}
 					scaleValue={water} 
 				/>
 				<CareScale 
-					careType={TEXT.plant.care.LIGHT} 
+					careType={TEXT.PLANT.CARE.LIGHT} 
 					scaleValue={light} 
 				/>
 			</div>

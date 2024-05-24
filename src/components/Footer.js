@@ -27,17 +27,17 @@ function Footer() {
     }
 
     function checkEmail(value) {
-        if(!value.includes(TEXT.ARROBASE)) {
-            alert(TEXT.ERREUR_EMAIL)
+        if(!value.includes(TEXT.FOOTER.ARROBASE)) {
+            alert(TEXT.FOOTER.EMAIL_ERROR)
         }
     }
 
     return (
         <footer className='lmj-footer'>
             <div className='lmj-footer-elem'>
-                {TEXT.ACCROCHE_FOOTER}
+                {TEXT.FOOTER.TAGLINE}
             </div>
-            <div  className='lmj-footer-elem'>{TEXT.DEMANDE_EMAIL}
+            <div  className='lmj-footer-elem'>{TEXT.FOOTER.EMAIL_PLACEHOLDER}
                 <form>
                     <input 
                         type='text' 
