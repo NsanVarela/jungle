@@ -1,22 +1,35 @@
 import '../styles/Categories.css'
 import { TEXT } from '../constants/text'
 
-function Categories({ setActiveCategory, categories, activeCategory }) {
+function Categories({ setActiveCategories, categories, activeCategories }) {
+	
+	function handleCheckboxChange(category) {
+        if (activeCategories.includes(category)) {
+            setActiveCategories(activeCategories.filter((cat) => cat !== category))
+        } else {
+            setActiveCategories([...activeCategories, category])
+        }
+    }
+
 	return (
 		<div className='lmj-categories'>
-			<select
-				value={activeCategory}
-				onChange={(e) => setActiveCategory(e.target.value)}
-				className='lmj-categories-select'
-			>
-				<option value=''>---</option>
-				{categories.map((cat) => (
-					<option key={cat} value={cat}>
-						{cat}
-					</option>
-				))}
-			</select>
-			<button onClick={() => setActiveCategory('')}>{TEXT.CART.REINITIALIZE}</button>
+			<p>Catégories de plantes</p>
+			<ul>
+                    {categories.map((cat) => (
+                        <li key={cat}>
+                            <label>
+                                <input
+                                    type='checkbox'
+                                    value={cat}
+                                    checked={activeCategories.includes(cat)}
+                                    onChange={() => handleCheckboxChange(cat)}
+                                />
+                                {cat}
+                            </label>
+                        </li>
+                    ))}
+                </ul>
+			<button onClick={() => setActiveCategories([])}>{TEXT.CART.REINITIALIZE}</button>
 		</div>
 	)
 }

@@ -9,7 +9,7 @@ import { TEXT } from '../constants/text'
 
 function ShoppingList() {
 	const dispatch = useDispatch()
-	const [activeCategory, setActiveCategory] = useState('')
+	const [activeCategories, setActiveCategories] = useState([])
 	const categories = plantList.reduce(
 		(acc, plant) =>
 			acc.includes(plant.category) ? acc : acc.concat(plant.category),
@@ -24,13 +24,13 @@ function ShoppingList() {
 		<div className='lmj-shopping-list'>
 			<Categories
 				categories={categories}
-				setActiveCategory={setActiveCategory}
-				activeCategory={activeCategory}
+				setActiveCategories={setActiveCategories}
+				activeCategories={activeCategories}
 			/>
 
 			<ul className='lmj-plant-list'>
 				{plantList.map(({ id, cover, name, water, light, price, category }) =>
-					!activeCategory || activeCategory === category ? (
+					!activeCategories.length || activeCategories.includes(category) ? (
 						<div key={id}>
 							<PlantItem
 								cover={cover}
